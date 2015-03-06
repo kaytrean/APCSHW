@@ -38,7 +38,7 @@ public class Select {
     }
 
     public static void main(String[] args) {
-        int[] t = {5, 2, 12, 7, 3};
+        int[] t = {4, 2, 12, 3, 2};
         System.out.println(Arrays.toString(Select.partition(t)));
     }
 }
