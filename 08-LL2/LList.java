@@ -3,11 +3,11 @@ public class LList {
     private int len;
 
     public LList(){
-	empty = new Node(" ");
+	empty = new Node(-1);
 	len = 0;
     }
 
-    public void add(String s){
+    public void add(int s){
 	Node tmp = new Node(s);
 	tmp.setNext(empty.getNext());
 	empty.setNext(tmp);
@@ -15,32 +15,60 @@ public class LList {
     }
 
 	    
-    public void add(int index, String s){
+    public void add(int index, int s){
 	Node newNode = new Node(s);	
-	Node nodeb4 = get(index-1);
+	Node nodeb4 = empty.getNext();
+	for(int i =0;i<index-1;i++){
+	    nodeb4 = nodeb4.getNext();
+	}
 	newNode.setNext(nodeb4.getNext());
 	nodeb4.setNext(newNode);
 	len++;
     }
 
-    public Node get(int n){
-	int i = -1;
-	Node tmp = empty;
-	while(i<n && tmp != null){
+    public int get(int n){
+	if(n >= len){
+	    throw new IndexOutOfBoundsException();
+	}
+	int i = 0;
+	Node tmp = empty.getNext();
+	while(i<n && i <len){
 	    tmp = tmp.getNext();
 	    i++;
 	}
       
-	return tmp;
+	return tmp.getData();
     }
-
     
-    public void remove(int n){
-	Node tmp = get(n-1);
-	tmp.setNext(tmp.getNext().getNext());
+    /*
+    public int remove(int n){
+	if(n>= this.len || n <0){
+	    return -1;
+	}
+	Node T = empty.getNext();
+	for(int i =0;i<n-1;i++){
+	    T = T.getNext();
+	}
+	int s = T.getNext().getData();
+	T.setNext(T.getNext().getNext());
 	len--;
+	return s;
     }
+    */
     
+    public boolean remove(int i){
+	Node tmp= empty;
+	for(int j=0;j<len;j++){
+	    if(tmp.getNext().getData() == i){
+		tmp.setNext(tmp.getNext().getNext());
+		len--;
+		return true;
+	    }
+	    tmp = tmp.getNext();
+	}
+	return false;
+    }
+	
     
     public int size(){
 	return len;
