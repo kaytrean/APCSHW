@@ -19,3 +19,34 @@ Trees - empty or acycilic graph with one node designated as the root
   ~balance - number of nodes coming off 
   
 Binary Tree - each node has 0, 1 or 2 children; either leaf or a left/right child
+  binary search tree - tree where given the value V in any node n, all the values in n's left subtree are less than
+  v, and all of the values in n's right subtree are greater that v
+  
+public Node search(Node T, integer i){
+  while (T != null){
+  int c - T.getData().moveTo(i);
+  if (c==0){
+    return T;
+    }
+  else if (c>0){
+    T=T.getRight();
+    }
+  else {
+    T=T.getLeft();
+    }
+  return null;
+  }
+}
+
+insert 
+  node n = new node(i);
+  if (T== null){
+    T=n;
+  return
+  }
+  
+insert as a new leaf
+  1. set t to root
+  2. search for n but use c piggyback pointer T2 to follow T
+  3. T2 now points to new node's parent
+  4. Insert new node to the left or right of T2 as apporpriate
