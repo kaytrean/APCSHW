@@ -37,60 +37,29 @@ public class BST{
 	}
     }
 
-    /*
-      two pointers to node and parent
-      a)if leaf, set parent left/right to null
-      b)if only has one child, set parent left/right to child
-      c)if 2 children, find largest left or smallest right node and copy data 
-      into location of node being removed.
-    */
-    
-    public void remove(int i){	
-	Node t = root;
-	Node piggy = t;
-	boolean right;
-	while(t.getData()!=i && t!=null){
-	    piggy = t;
-	    if(t.getData()<i){
-		t=t.getRight();
-		right = true;
-	    } else if(t.getData()>i) {
-		t=t.getLeft();
-		right = false;
-	    }
-	}
-
-	if(t.numKids()==0){
-	    if(right){
-		piggy.setRight(null);
-	    }else{
-		piggy.setLeft(null);
-	    }
-	}else if (t.numKids()==1){
-	    if(right){
-		if(t.getRight() != null){
-		    piggy.setRight(t.getRight());
-		}else {
-		    piggy.setRight(t.getLeft());
-		}
-	    } else {
-		if(t.getRight() != null){
-		    piggy.setLeft(t.getRight());
-		}else {
-		    piggy.setLeft(t.getLeft());
-		}
-	    }
+     public int maxValue(Node t, int n){
+	if(t == null){
+	    return n;
+	} else if(t.getData() > n){
+	    return maxValue(t.getRight(), t.getData()); 
 	} else {
-	    L = t.getRight();
-	    L2 = t;
-	    while (L.getLeft() != null){
-		L2 = L
-		L = L.getLeft();
-	    }
-	    t = L;
-	    L2.setLeft(null);
+	    return maxValue(t.getRight(), n);
 	}
+    }
+
+    public int maxValue(){
+	return maxValue(root,Integer.MIN_VALUE);
+    }
+
+    public int height(Node t){
+	if(t.getLeft() != null){
+	    return 1+ height(t.getLeft());
+	} else if (t.getRight() != null){
+	    return 1 +height(t.getRight());
+	} else {
+	    return 1;
 	}
+    }
     
     public Node search(int i){
 	Node t = root;
@@ -141,7 +110,7 @@ public class BST{
 
     
     public String toString(){
-	return ascend(root);
+	return traverse(root);
     }
   
     public static void main(String[] args){
@@ -152,75 +121,9 @@ public class BST{
 	    b.insert(10*rnd.nextInt(10));
 	}
 	System.out.println(b);
-	System.out.println(b.ascend());
+	System.out.println(b.height(r));
+	System.out.println(b);
     }
 	
 	    
-}import java.io.*;
-import java.util.*;
-public class BST{
-    Node r;
-
-    public Node search(Node t, int i){
-	if (t==null || t.getData()==i){
-	    return t;
-	}
-	else if (i<t.getData()){
-	    return search(t.getLeft(),i);
-	} else {
-	    return search(t.getRight(),i);
-	}
-    }
-
-    public String search(int i){
-	Node n = search(r,i);
-	if (n==null){
-	    return "NOT FOUND";
-	}else{
-	    return n.toString();
-	}
-    }
-
-    public void insert(int i){
-	Node n = new Node(i);
-	Node t2=null;
-	Node t = r;
-	if (r==null){
-	    r=n;
-	    return;
-	}
-								
-	while (t!=null){
-	    t2 = t;
-	    if (t.getData()==i)
-		return;
-	    else if (t.getData() < i)
-		t=t.getRight();
-	    else if (t.getData() > i)
-		t=t.getLeft();
-	    else
-		return;
-	}
-
-				
-	if (i>t2.getData())
-	    t2.setRight(n);
-	else
-	    t2.setLeft(n);
-    }
-
-		
-
-    public static void main(String[] args){
-	BST t = new BST();
-	Random r = new Random();
-	for (int i = 0; i < 20; i ++){
-	    int z = r.nextInt(100);
-	    //System.out.println(z);
-	    t.insert(z);
-	}
-	t.insert(30);
-	System.out.println(t);
-	System.out.println(t.search(30));
-    }
 }
