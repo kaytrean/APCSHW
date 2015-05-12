@@ -1,0 +1,28 @@
+min Heap (root always holds smallest value)
+  1. Binary Tree
+  2. parent is smaller than either children
+  3. as full as possible left to right
+  
+removemin(){
+  1. pull off root
+  2. move lowest rightest value to root
+  3. pushdown (root)
+    -> while node is greater than either child, swap with smaller child and work down
+    
+insert
+  -> add new node to lowest leftest new position
+  -> sift up
+      -> like pushdown but moving up the tree
+  -> O(lgn)
+  
+    
+    findmin() -> O(1)
+    removemin -> O(lgn)
+    pushdown -> O(lgn)
+    heapsort -> O(n lgn)
+    create -> O(n lgn) {really O(n)
+    
+  given node n
+    n's children are at 2n,2n+1
+    
+  parent int (n/2)
