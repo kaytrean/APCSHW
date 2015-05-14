@@ -1,0 +1,9 @@
+for (i = end of array to 0)
+  pushdown A(i)
+  
+algorithm runs in linear time
+  building is linear and sorting is nlgn
+  
+  max heap and min heap
+    keep heaps of the same size (or off by one)
+    
