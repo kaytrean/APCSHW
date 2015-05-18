@@ -1,0 +1,7 @@
+hosting/hash tables
+you want to store data in a table (array) by same unique id
+
+a hash function is mapping that takes an id and converts it into a table index
+when multiple ids hash to the same table index we jave a collision or clash
+  your hash   tables must be large enough so that it is sparesly populated
+  
