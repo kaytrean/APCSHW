@@ -7,5 +7,6 @@
       
 ~some sort of game?
       breakout
+            hard coding maps? how many levels? powerups like extra lives, three balls at once, bombs inside objects
       space invaders
       
