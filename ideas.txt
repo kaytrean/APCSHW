@@ -1,0 +1,11 @@
+~mp3 player that plays music in real time
+      (volume, pause, play, skip.... use mp3 files)
+      (also a video player?)
+      
+~video downloader
+      youtube avi?
+      
+~some sort of game?
+      breakout
+      space invaders
+      
