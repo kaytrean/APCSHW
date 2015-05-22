@@ -8,5 +8,15 @@
 ~some sort of game?
       breakout
             hard coding maps? how many levels? powerups like extra lives, three balls at once, bombs inside objects
+            6 levels, ball will get faster after hitting the bar 5 times, bricks you have to hit twice to break
+            start off with 5 lives
+            we need to keep score, different blocks for different scores
+            powerups:
+                  all bricks turn normal/ball can go through all bricks
+                  extra life (only if one life already missing)
+                  
       space invaders
+      
+      GEEKTYPER
+            game where there is a student who is gaming but everytime a teacher comes by he changes to geekscript
       
