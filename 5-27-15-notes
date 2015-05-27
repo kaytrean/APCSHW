@@ -1,0 +1,10 @@
+Dijkstra's Algorithm 
+
+Single Source Shortest Path Algorithm 
+  Initialization : Start node in solution set
+    use a heap to store weights from A to every node
+    
+    1. Grab node with lowest cost and add to solution set
+    2. For each node in heap cost = min(oldcosts)
+        cost to get t new node + cost from New node in solution set to this node)
+    
