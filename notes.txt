@@ -1,0 +1,6 @@
+~first, make the player move
+~second, have it say congradulations after you reach the end, level stops
+~have it make a new level, 
+~final level: 51, 51, 16
+~39,39,17
+~23,23,17
